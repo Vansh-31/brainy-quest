@@ -1,13 +1,23 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import LargeNav from "./components/LargeNav";
+import SmallNav from "./components/SmallNav";
 import Home from "./pages/Home";
 
 function App() {
+	const isLargeScreen = useMediaQuery({
+		query: "(min-width: 712px)",
+	});
 	return (
 		<div>
 			<Routes>
-				<Route path="/" element={LargeNav}>
+				<Route
+					path="/"
+					element={
+						isLargeScreen ? <LargeNav></LargeNav> : <SmallNav></SmallNav>
+					}
+				>
 					<Route index element={<Home></Home>}></Route>
 				</Route>
 			</Routes>
