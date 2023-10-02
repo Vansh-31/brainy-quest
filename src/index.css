@@ -1,3 +1,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/utilities";
 @import "tailwindcss/components";
+@layer base {
+	:root {
+		--color-primary: 29 148 242;
+		--color-secondary: 56 160 245;
+		--color-primary-dark: 15 49 87;
+	}
+}
