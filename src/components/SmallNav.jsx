@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,Outlet } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
@@ -58,6 +58,7 @@ const SmallNav = () => {
 					</NavLink>
 				</div>
 			</nav>
+			<Outlet></Outlet>
 		</>
 	);
 };
