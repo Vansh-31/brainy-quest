@@ -10,7 +10,7 @@ function App() {
 		query: "(min-width: 712px)",
 	});
 	return (
-		<div className="min-h-screen w-screen overflow-x-hidden overflow-y-auto" >
+		<div className="h-screen w-screen overflow-x-hidden overflow-y-auto" >
 			<Routes>
 				<Route
 					path="/"
