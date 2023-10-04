@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import LargeNav from "./components/LargeNav";
 import SmallNav from "./components/SmallNav";
 import Home from "./pages/Home";
+import Quiz from "./pages/Quiz";
 
 function App() {
 	const isLargeScreen = useMediaQuery({
@@ -19,6 +20,7 @@ function App() {
 					}
 				>
 					<Route index element={<Home></Home>}></Route>
+					<Route path="/quiz" element={<Quiz></Quiz>} ></Route>
 				</Route>
 			</Routes>
 		</div>
