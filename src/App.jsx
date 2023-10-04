@@ -1,6 +1,8 @@
 import "./App.css";
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLoading } from "./redux/slices/loadingSlice";
 import { useMediaQuery } from "react-responsive";
 import LargeNav from "./components/LargeNav";
 import SmallNav from "./components/SmallNav";
@@ -9,13 +11,24 @@ import Quiz from "./pages/Quiz";
 
 const triviaSessionTokenUrl =
 	"https://opentdb.com/api_token.php?command=request";
+const triviaCategoriesUrl = "https://opentdb.com/api_category.php";
 function App() {
+	const dispatch = useDispatch();
+	const catagories = {};
 	useEffect(() => {
 		gettriviaSessionToken();
-	}, []);
-	const isLargeScreen = useMediaQuery({
-		query: "(min-width: 712px)",
-	});
+		getTriviaCategories();
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
+	async function getTriviaCategories() {
+		dispatch(setLoading(true));
+		const response = await fetch(triviaCategoriesUrl);
+		const data = await response.json();
+		const { trivia_categories } = data;
+		trivia_categories.forEach((category) => {
+			catagories[category.name] = category.id;
+		});
+		dispatch(setLoading(false));
+	}
 	async function gettriviaSessionToken() {
 		const storedToken = localStorage.getItem("triviaSessionToken");
 
@@ -37,6 +50,9 @@ function App() {
 		localStorage.setItem("triviaSessionToken", token);
 		localStorage.setItem("tokenExpiration", expirationTime);
 	}
+	const isLargeScreen = useMediaQuery({
+		query: "(min-width: 712px)",
+	});
 	return (
 		<div className="h-screen w-screen overflow-x-hidden overflow-y-auto">
 			<Routes>
@@ -47,7 +63,10 @@ function App() {
 					}
 				>
 					<Route index element={<Home></Home>}></Route>
-					<Route path="/quiz" element={<Quiz></Quiz>}></Route>
+					<Route
+						path="/quiz"
+						element={<Quiz catagories={catagories}></Quiz>}
+					></Route>
 				</Route>
 			</Routes>
 		</div>
