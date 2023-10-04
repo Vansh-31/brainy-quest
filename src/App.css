@@ -1,4 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 * {
-	font-family: "Ubuntu", sans-serif;
+    font-family: "Ubuntu", sans-serif;
 }
+.btn {
+    --color: rgb(56,160,245);
+    font-family: inherit;
+    display: inline-block;
+    width: 6em;
+    height: 2.6em;
+    line-height: 2.5em;
+    overflow: hidden;
+    margin: 20px;
+    font-size: 17px;
+    z-index: 1;
+    color: var(--color);
+    border: 2px solid var(--color);
+    border-radius: 6px;
+    position: relative;
+}
+
+.btn::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
+    width: 150px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.btn:before {
+    top: 100%;
+    left: 100%;
+    transition: 0.3s all;
+}
+
+.btn:hover::before {
+    top: -30px;
+    left: -30px;
+}
+
+.btn:disabled {
+	color: var(--color);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn:disabled::before {
+    display: none;
+}
+
