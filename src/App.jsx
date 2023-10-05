@@ -1,8 +1,6 @@
 import "./App.css";
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setLoading } from "./redux/slices/loadingSlice";
 import { useMediaQuery } from "react-responsive";
 import LargeNav from "./components/LargeNav";
 import SmallNav from "./components/SmallNav";
@@ -11,24 +9,12 @@ import Quiz from "./pages/Quiz";
 
 const triviaSessionTokenUrl =
 	"https://opentdb.com/api_token.php?command=request";
-const triviaCategoriesUrl = "https://opentdb.com/api_category.php";
+
 function App() {
-	const dispatch = useDispatch();
-	const catagories = {};
 	useEffect(() => {
 		gettriviaSessionToken();
-		getTriviaCategories();
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
-	async function getTriviaCategories() {
-		dispatch(setLoading(true));
-		const response = await fetch(triviaCategoriesUrl);
-		const data = await response.json();
-		const { trivia_categories } = data;
-		trivia_categories.forEach((category) => {
-			catagories[category.name] = category.id;
-		});
-		dispatch(setLoading(false));
-	}
+	
 	async function gettriviaSessionToken() {
 		const storedToken = localStorage.getItem("triviaSessionToken");
 
@@ -65,7 +51,7 @@ function App() {
 					<Route index element={<Home></Home>}></Route>
 					<Route
 						path="/quiz"
-						element={<Quiz catagories={catagories}></Quiz>}
+						element={<Quiz></Quiz>}
 					></Route>
 				</Route>
 			</Routes>

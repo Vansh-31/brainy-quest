@@ -4,7 +4,7 @@ import Question from "./Question";
 const QuizQuestions = () => {
 	const quizQuestions = useSelector((state) => state.quizQuestions);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
-	console.log(quizQuestions[currentQuestion]);
+	// console.log(quizQuestions[currentQuestion]);
 	return (
 		<div className="w-11/12 h-full max-w-6xl mx-auto bg-white flex flex-col justify-between items-center p-6">
 			<Question {...quizQuestions[currentQuestion]}></Question>
