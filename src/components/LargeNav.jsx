@@ -29,7 +29,7 @@ const LargeNav = () => {
 						<NavLink className="px-6 py-3 hover:bg-primary" to="/quiz">
 							Take a QUIZ
 						</NavLink>
-						<NavLink className="px-6 py-3 hover:bg-primary" to="/">
+						<NavLink className="px-6 py-3 hover:bg-primary" to="/result">
 							Results
 						</NavLink>
 						<button

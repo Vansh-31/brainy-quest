@@ -53,7 +53,7 @@ const SmallNav = () => {
 					<NavLink to="/quiz" className="w-full py-12 hover:bg-blue-950">
 						<p className="text-white text-2xl">Take a QUIZ</p>
 					</NavLink>
-					<NavLink to="/" className="w-full py-12 hover:bg-blue-950">
+					<NavLink to="/result" className="w-full py-12 hover:bg-blue-950">
 						<p className="text-white text-2xl">Results</p>
 					</NavLink>
 				</div>
