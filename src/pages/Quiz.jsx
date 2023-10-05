@@ -1,35 +1,42 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLoading } from "../redux/slices/loadingSlice";
-import { setQuizQuestions } from "../redux/slices/quizQuestionsSlice";
+import { setQuiz } from "../redux/slices/quizSlice";
 import QuizSetUpCard from "../components/QuizSetUpCard";
 import QuizQuestions from "../components/QuizQuestions";
 import Loader from "../components/Loader";
+const BASE_URL = "https://opentdb.com/api.php";
+const triviaCategoriesUrl = "https://opentdb.com/api_category.php";
 const Quiz = () => {
-	const [catagories, setCatetories] = useState({});
-	const dispatch = useDispatch();
 	const loading = useSelector((state) => state.loading);
+	const onGoingQuiz = useSelector((state) => state.quiz.isOnGoing);
+	const dispatch = useDispatch();
+	const [catagories, setCatetories] = useState({});
 	const [quizConfig, setQuizConfig] = useState({
 		category: "General Knowledge",
 		totalQuestions: 10,
 		difficulty: "Easy",
 	});
-	const [onGoingQuiz, setOnGoingQuiz] = useState(false);
 	useEffect(() => {
 		getTriviaCategories();
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 	const startQuiz = async () => {
 		dispatch(setLoading(true));
-		setOnGoingQuiz(true);
-		const response = await fetch(
-			`https://opentdb.com/api.php?amount=${
-				quizConfig.totalQuestions
-			}&category=${
-				catagories[quizConfig.category]
-			}&difficulty=${quizConfig.difficulty.toLowerCase()}&type=multiple`
+		dispatch(setQuiz({ isOnGoing: true }));
+		let url = `${BASE_URL}?amount=${quizConfig.totalQuestions}&category=${
+			catagories[quizConfig.category]
+		}&difficulty=${quizConfig.difficulty.toLowerCase()}&type=multiple`;
+		// First try to fetch questions with token if not enough questions are fetched then fetch without token
+		let results = await getData(
+			`${url}&token=${localStorage.getItem("triviaSessionToken")}`
 		);
-		const data = await response.json();
-		dispatch(setQuizQuestions(data.results));
+		if (results.length < quizConfig.totalQuestions) {
+			results = await getData(url);
+		}
+		const questions = results.map((data) => {
+			return data.question;
+		});
+		dispatch(setQuiz({ questions: questions, currentQuestion: 0 }));
 		dispatch(setLoading(false));
 	};
 	async function getTriviaCategories() {
@@ -44,7 +51,11 @@ const Quiz = () => {
 		setCatetories(fetched_categories);
 		dispatch(setLoading(false));
 	}
-	const triviaCategoriesUrl = "https://opentdb.com/api_category.php";
+	async function getData(url) {
+		const response = await fetch(url);
+		const data = await response.json();
+		return data.results;
+	}
 	return (
 		<div className="w-full h-[90vh] bg-gray-100 overflow-hidden">
 			{loading ? (

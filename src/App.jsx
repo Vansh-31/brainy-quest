@@ -14,7 +14,7 @@ function App() {
 	useEffect(() => {
 		gettriviaSessionToken();
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
-	
+
 	async function gettriviaSessionToken() {
 		const storedToken = localStorage.getItem("triviaSessionToken");
 
@@ -23,8 +23,8 @@ function App() {
 			const currentTime = Date.now();
 
 			if (currentTime < expirationTime) {
-				// Token is still valid, return it
-				return storedToken;
+				// Token is still valid then return
+				return;
 			}
 		}
 
@@ -49,10 +49,7 @@ function App() {
 					}
 				>
 					<Route index element={<Home></Home>}></Route>
-					<Route
-						path="/quiz"
-						element={<Quiz></Quiz>}
-					></Route>
+					<Route path="/quiz" element={<Quiz></Quiz>}></Route>
 				</Route>
 			</Routes>
 		</div>
