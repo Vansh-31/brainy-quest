@@ -1,16 +1,10 @@
 import React from "react";
-
 const Question = ({ question }) => {
-    const formatString = (str) => {
-        let x = Array.from(str);
-        while (x.includes("&") && x.includes(";")) {
-            let i = x.indexOf("&");
-            let j = x.indexOf(";");
-            console.log(String.fromCharCode( x.join(x.slice(i + 1, j))));
-            x = x.slice(0, i) + x.slice(j + 1);
-        }
-        return str;
-    };
+	const formatString = (text) => {
+		let doc = new DOMParser().parseFromString(text, "text/html");
+		console.log(doc.documentElement.textContent);
+		return doc.documentElement.textContent;
+	};
 	return <div>{formatString(question)}</div>;
 };
 
