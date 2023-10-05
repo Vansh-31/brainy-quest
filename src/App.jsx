@@ -6,6 +6,7 @@ import LargeNav from "./components/LargeNav";
 import SmallNav from "./components/SmallNav";
 import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
+import Result from "./pages/Result";
 
 const triviaSessionTokenUrl =
 	"https://opentdb.com/api_token.php?command=request";
@@ -50,6 +51,7 @@ function App() {
 				>
 					<Route index element={<Home></Home>}></Route>
 					<Route path="/quiz" element={<Quiz></Quiz>}></Route>
+					<Route path="/result" element={<Result></Result>}></Route>
 				</Route>
 			</Routes>
 		</div>

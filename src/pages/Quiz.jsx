@@ -33,10 +33,42 @@ const Quiz = () => {
 		if (results.length < quizConfig.totalQuestions) {
 			results = await getData(url);
 		}
+		function getRandomInt(max) {
+			return Math.floor(Math.random() * max);
+		}
+
+		function shuffleArray(arr) {
+			const result = arr.slice();
+			for (let i = 0; i < arr.length; i++) {
+				const randomIdx = getRandomInt(arr.length);
+				[result[i], result[randomIdx]] = [result[randomIdx], result[i]];
+			}
+			return result;
+		}
+		// console.log(results);
 		const questions = results.map((data) => {
 			return data.question;
 		});
-		dispatch(setQuiz({ questions: questions, currentQuestion: 0 }));
+		const options = results.map((data) => {
+			return shuffleArray([...data.incorrect_answers, data.correct_answer]);
+		});
+		const answers = results.map((data) => {
+			return data.correct_answer;
+		});
+		for (let index = 0; index < options.length; index++) {
+			answers[index] = options[index].indexOf(answers[index]);
+		}
+		// console.log(options);
+		// console.log(answers);
+		dispatch(
+			setQuiz({
+				questions: questions,
+				options: options,
+				answers: answers,
+				userAnswers: Array(quizConfig.totalQuestions).fill(null),
+				currentQuestion: 0,
+			})
+		);
 		dispatch(setLoading(false));
 	};
 	async function getTriviaCategories() {
@@ -63,7 +95,7 @@ const Quiz = () => {
 			) : onGoingQuiz ? (
 				<QuizQuestions></QuizQuestions>
 			) : (
-				<div className="w-11/12 h-full max-w-6xl mx-auto bg-white flex flex-col items-center p-6">
+				<div className="w-11/12 h-full max-w-6xl mx-auto bg-white flex flex-col items-center p-10">
 					{/* Quiz Configuration */}
 					<div className="w-full min-h-1/3 flex justify-evenly items-center flex-wrap gap-y-8">
 						<QuizSetUpCard

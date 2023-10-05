@@ -1,10 +1,50 @@
 import React from "react";
-const Question = ({ question }) => {
+import { useDispatch } from "react-redux";
+import { setQuiz } from "../redux/slices/quizSlice";
+const Question = ({ questionNumber, question, options, userAnswers }) => {
+	const dispatch = useDispatch();
 	const formatString = (text) => {
 		let doc = new DOMParser().parseFromString(text, "text/html");
 		return doc.documentElement.textContent;
 	};
-	return <div>{formatString(question)}</div>;
+	return (
+		<div className="h-full w-full flex justify-center">
+			<div className="w-max max-w-full p-6">
+				<h2 className="text-2xl font-bold text-center">
+					{formatString(question)}
+				</h2>
+				<div className="flex flex-col mt-12 items-center gap-6">
+					{options.map((option, index) => {
+						return (
+							<label
+								className={`w-max flex items-center gap-3 shadow-md rounded-lg text-lg px-5 py-3 cursor-pointer hover:bg-blue-300 hover:shadow-secondary transition-all duration-100 ease-in-out  ${
+									userAnswers[questionNumber] === index
+										? "bg-blue-300 shadow-secondary"
+										: "bg-blue-100"
+								}`}
+								key={index}
+							>
+								<input
+									className="hidden"
+									id={`${questionNumber}${index}`}
+									type="radio"
+									name="option"
+									value={option}
+									checked={userAnswers[questionNumber] === index}
+									onChange={() => {
+										const newAnswers = [...userAnswers];
+										newAnswers[questionNumber] = index;
+										dispatch(setQuiz({ userAnswers: newAnswers }));
+									}}
+								/>
+								{formatString(option)}
+							</label>
+						);
+					})}
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default Question;

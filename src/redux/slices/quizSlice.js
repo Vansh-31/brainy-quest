@@ -4,8 +4,10 @@ const quizSlice = createSlice({
 	name: "quiz",
 	initialState: {
         questions: [],
+        options: [],
         answers: [],
-        currentQuestion: 0,
+        userAnswers: [],
+        currentIndex: 0,
         isOnGoing: false,
         isFinished: false,
     },
