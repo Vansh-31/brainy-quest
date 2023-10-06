@@ -13,11 +13,11 @@ const Question = ({ questionNumber, question, options, userAnswers }) => {
 				<h2 className="text-2xl font-bold text-center">
 					{formatString(question)}
 				</h2>
-				<div className="flex flex-col mt-12 items-center gap-6">
+				<div className="flex flex-col mt-12 items-center gap-10">
 					{options.map((option, index) => {
 						return (
 							<label
-								className={`w-max flex items-center gap-3 shadow-md rounded-lg text-lg px-5 py-3 cursor-pointer hover:bg-blue-300 hover:shadow-secondary transition-all duration-100 ease-in-out  ${
+								className={`w-max flex items-center gap-3 shadow-md rounded-lg text-lg px-6 py-4 cursor-pointer hover:bg-blue-300 hover:shadow-secondary transition-all duration-100 ease-in-out  ${
 									userAnswers[questionNumber] === index
 										? "bg-blue-300 shadow-secondary"
 										: "bg-blue-100"

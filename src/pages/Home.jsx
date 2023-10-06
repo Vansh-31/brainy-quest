@@ -15,9 +15,9 @@ const Home = () => {
 					really know.
 				</p>
 				<NavLink to="/quiz">
-					<button className="btn">
+					<div className="btn text-center">
 						Take a Quiz
-					</button>
+					</div>
 				</NavLink>
 			</div>
 		</div>

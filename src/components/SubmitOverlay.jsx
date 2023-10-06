@@ -13,7 +13,7 @@ const SubmitOverlay = ({
 			<div className="fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-40 z-50">
 				<div className="absolute top-[50%] left-[50%] p-8 h-max  bg-white -translate-x-[50%] -translate-y-[50%] flex justify-center items-center flex-col">
 					<p className="text-xl font-bold"> Do you want to submit the quiz?</p>
-					<div>
+					<div className="flex flex-wrap justify-evenly" >
 						<button
 							onClick={() => {
 								setSubmitOverlayVisiblity(false);

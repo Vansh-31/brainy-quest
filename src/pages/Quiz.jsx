@@ -4,6 +4,7 @@ import { setLoading } from "../redux/slices/loadingSlice";
 import { setQuiz } from "../redux/slices/quizSlice";
 import QuizSetUpCard from "../components/QuizSetUpCard";
 import QuizQuestions from "../components/QuizQuestions";
+
 import Loader from "../components/Loader";
 const BASE_URL = "https://opentdb.com/api.php";
 const triviaCategoriesUrl = "https://opentdb.com/api_category.php";
@@ -22,7 +23,7 @@ const Quiz = () => {
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 	const startQuiz = async () => {
 		dispatch(setLoading(true));
-		dispatch(setQuiz({ isOnGoing: true }));
+		dispatch(setQuiz({ isOnGoing: true, isFinished: false }));
 		let url = `${BASE_URL}?amount=${quizConfig.totalQuestions}&category=${
 			catagories[quizConfig.category]
 		}&difficulty=${quizConfig.difficulty.toLowerCase()}&type=multiple`;
@@ -38,12 +39,12 @@ const Quiz = () => {
 		}
 
 		function shuffleArray(arr) {
-			const result = arr.slice();
+			const shuflled = [...arr];
 			for (let i = 0; i < arr.length; i++) {
 				const randomIdx = getRandomInt(arr.length);
-				[result[i], result[randomIdx]] = [result[randomIdx], result[i]];
+				[shuflled[i], shuflled[randomIdx]] = [shuflled[randomIdx], shuflled[i]];
 			}
-			return result;
+			return shuflled;
 		}
 		// console.log(results);
 		const questions = results.map((data) => {
