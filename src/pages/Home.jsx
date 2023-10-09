@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Home = () => {
 	return (
 		<>
-			<div className="w-11/12 h-full max-w-6xl mx-auto bg-white flex flex-col items-center">
+			<div className="w-11/12 h-full max-w-6xl mx-auto  flex flex-col items-center">
 				<img className="h-96" src={quizLogo} alt="" />
 				<h1 className="text-5xl font-bold mb-4 text-primary text-center">
 					Welcome to Brainy Quest

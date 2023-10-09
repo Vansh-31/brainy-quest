@@ -17,7 +17,6 @@ const BreifResults = ({ setShowDetailedResults }) => {
 			navigate("/");
 		}
 		setScore(getUserScore());
-		console.log(userAnswers, answers);
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 	function getUserScore() {
 		let score = 0;
@@ -29,7 +28,7 @@ const BreifResults = ({ setShowDetailedResults }) => {
 		return score;
 	}
 	return (
-		<div className="h-full bg-white flex flex-col justify-evenly items-center p-10">
+		<div className="h-full  flex flex-col justify-evenly items-center p-10">
 			<h1 className="text-5xl font-bold text-[rgb(0,157,255)] text-center">
 				Your Score :
 			</h1>

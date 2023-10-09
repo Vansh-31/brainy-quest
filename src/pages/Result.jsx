@@ -4,10 +4,10 @@ import DetailedResults from "../components/DetailedResults";
 const Result = () => {
 	const [showDetailedResults, setShowDetailedResults] = useState(false);
 	return (
-		<div className="w-11/12 h-full min-h-max max-w-6xl mx-auto bg-white">
+		<div className="w-11/12 h-full min-h-max max-w-6xl mx-auto ">
 			{showDetailedResults ? (
 				<DetailedResults
-					showDetailedResults={showDetailedResults}
+					setShowDetailedResults={setShowDetailedResults}
 				></DetailedResults>
 			) : (
 				<BreifResults

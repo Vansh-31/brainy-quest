@@ -61,12 +61,14 @@ const Quiz = () => {
 		}
 		// console.log(options);
 		// console.log(answers);
+		const userAnswers = Array(quizConfig.totalQuestions);
+		userAnswers.fill(null);
 		dispatch(
 			setQuiz({
 				questions: questions,
 				options: options,
 				answers: answers,
-				userAnswers: Array(quizConfig.totalQuestions).fill(null),
+				userAnswers: userAnswers,
 				currentQuestion: 0,
 			})
 		);
@@ -96,7 +98,7 @@ const Quiz = () => {
 			) : onGoingQuiz ? (
 				<QuizQuestions></QuizQuestions>
 			) : (
-				<div className="w-11/12 h-full max-w-6xl mx-auto bg-white flex flex-col items-center p-10">
+				<div className="w-11/12 h-full max-w-6xl mx-auto  flex flex-col items-center p-10">
 					{/* Quiz Configuration */}
 					<div className="w-full flex justify-evenly items-center flex-wrap gap-y-8">
 						<QuizSetUpCard
