@@ -1,6 +1,6 @@
-# Quiz App
+# Brainy Quest
 
-A dynamic Quiz App built with React and powered by Redux for seamless state management.
+Brainy Quest is a Quiz App built with React and powered by Redux for seamless state management.
 
 ## Features
 
@@ -12,15 +12,11 @@ A dynamic Quiz App built with React and powered by Redux for seamless state mana
 
 - **Sleek Dark Mode**: Switch between light and dark modes for a comfortable and visually appealing experience.
 
-## Demo
-
-[Demo Link]
-
 ## Getting Started
 
-1. **Installation**: npm instal
+1. **Installation**: `npm install`
 
-2. **Run the App**: npm start
+2. **Run the App**: `npm start`
 
 ## Technologies Used
 
@@ -30,7 +26,9 @@ A dynamic Quiz App built with React and powered by Redux for seamless state mana
 
 ## Deployment
 
-The app is deployed using Vercel.
+The app is smoothly and efficiently deployed using Vercel. A huge thanks to Vercel for their fantastic deployment services!
+
+[Explore the Quiz App](https://brainy-quest.vercel.app/)
 
 ## Contributing
 
