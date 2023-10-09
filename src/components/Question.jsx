@@ -17,7 +17,7 @@ const Question = ({ questionNumber, question, options, userAnswers }) => {
 					{options.map((option, index) => {
 						return (
 							<label
-								className={`w-max flex items-center gap-3 shadow-md rounded-lg text-lg px-6 py-4 cursor-pointer hover:bg-blue-300 hover:shadow-secondary transition-all duration-100 ease-in-out  ${
+								className={`w-max flex items-center gap-3 shadow-md rounded-lg text-black text-lg px-6 py-4 cursor-pointer hover:bg-blue-300 hover:shadow-secondary transition-all duration-100 ease-in-out  ${
 									userAnswers[questionNumber] === index
 										? "bg-blue-300 shadow-secondary"
 										: "bg-blue-100"

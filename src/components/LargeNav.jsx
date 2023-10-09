@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import logo from "../assets/logo.png";
+import darkLogo from "../assets/logo-dark-mode.png";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleDarkMode } from "../redux/slices/darkModeSlice";
 
@@ -10,13 +11,13 @@ const LargeNav = () => {
 	const darkMode = useSelector((state) => state.darkMode);
 	return (
 		<>
-			<div className="w-full min-h-[10vh] h-20 bg-secondary">
+			<div className={`w-full min-h-[10vh] h-20 bg-${ darkMode ? "primaryDark":"secondary" }`}>
 				<nav className="w-11/12 h-full max-w-6xl mx-auto flex justify-between items-center">
 					<NavLink
 						to="/"
 						className="h-full p-2 flex gap-x-2 justify-center items-center"
 					>
-						<img className="h-4/5" src={logo} alt="" />
+						<img className="h-4/5" src={ darkMode ? darkLogo : logo } alt="" />
 						<div className="h-full flex flex-col justify-center items-center">
 							<p className="font-bold text-white text-xl">Brainy Quest</p>
 							<p className="text-white">Test Your Brain</p>

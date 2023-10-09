@@ -51,7 +51,7 @@ const DetailedResults = ({ setShowDetailedResults }) => {
 									return (
 										<div className="h-max flex" key={index}>
 											<label
-												className={`w-max relative flex items-center gap-3 shadow-md rounded-lg text-lg px-6 py-4  ${
+												className={`w-max relative flex items-center gap-3 shadow-md rounded-lg text-black text-lg px-6 py-4  ${
 													answers[questionNumber] === index &&
 													userAnswers[questionNumber] === index
 														? "bg-green-300 shadow-secondary"

@@ -1,5 +1,5 @@
 import React from "react";
-import quizLogo from "../assets/quiz_logo.jpeg";
+import quizLogo from "../assets/quiz_logo.png";
 import { NavLink } from "react-router-dom";
 
 const Home = () => {

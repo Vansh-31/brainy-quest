@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import LargeNav from "./components/LargeNav";
 import SmallNav from "./components/SmallNav";
@@ -40,8 +41,13 @@ function App() {
 	const isLargeScreen = useMediaQuery({
 		query: "(min-width: 712px)",
 	});
+	const darkMode = useSelector((state) => state.darkMode);
 	return (
-		<div className="h-screen flex flex-col w-screen overflow-x-hidden overflow-y-scroll">
+		<div
+			className={`h-screen flex flex-col w-screen overflow-x-hidden overflow-y-scroll ${
+				darkMode ? "bg-secondaryDark text-white" : "bg-white text-black"
+			}`}
+		>
 			<Routes>
 				<Route
 					path="/"
