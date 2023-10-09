@@ -28,7 +28,7 @@ Brainy Quest is a Quiz App built with React and powered by Redux for seamless st
 
 The app is smoothly and efficiently deployed using Vercel. A huge thanks to Vercel for their fantastic deployment services!
 
-[Explore the Quiz App](https://brainy-quest.vercel.app/)
+[Explore the Quiz App](https://brainy-quest-jzj9ujncd-vansh-gawras-projects.vercel.app/)
 
 ## Contributing
 
