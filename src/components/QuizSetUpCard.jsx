@@ -2,7 +2,7 @@ import React from "react";
 
 const QuizSetUpCard = ({ heading, values,quizConfig,setQuizConfig,config }) => {
   return (
-    <div className="w-1/4 min-w-[256px] p-4 bg-white shadow-lg shadow-primary rounded-lg">
+    <div className="w-1/4 min-w-[256px] px-4 py-8 bg-white shadow-lg shadow-primary rounded-lg">
       <div className="text-2xl font-bold text-primaryDark text-center uppercase mb-4">
         {heading}
       </div>

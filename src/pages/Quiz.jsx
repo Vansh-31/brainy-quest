@@ -90,7 +90,7 @@ const Quiz = () => {
 		return data.results;
 	}
 	return (
-		<div className="w-full h-[90vh] bg-gray-100 overflow-hidden">
+		<>
 			{loading ? (
 				<Loader></Loader>
 			) : onGoingQuiz ? (
@@ -98,7 +98,7 @@ const Quiz = () => {
 			) : (
 				<div className="w-11/12 h-full max-w-6xl mx-auto bg-white flex flex-col items-center p-10">
 					{/* Quiz Configuration */}
-					<div className="w-full min-h-1/3 flex justify-evenly items-center flex-wrap gap-y-8">
+					<div className="w-full flex justify-evenly items-center flex-wrap gap-y-8">
 						<QuizSetUpCard
 							quizConfig={quizConfig}
 							setQuizConfig={setQuizConfig}
@@ -121,14 +121,14 @@ const Quiz = () => {
 							values={["Easy", "Medium", "Hard"]}
 						></QuizSetUpCard>
 					</div>
-					<div className="w-full h-full flex justify-center items-center">
+					<div className="w-full h-4/5 flex justify-center items-center">
 						<button onClick={startQuiz} className="btn">
 							Start Quiz
 						</button>
 					</div>
 				</div>
 			)}
-		</div>
+		</>
 	);
 };
 
