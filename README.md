@@ -12,16 +12,15 @@ A dynamic Quiz App built with React and powered by Redux for seamless state mana
 
 - **Sleek Dark Mode**: Switch between light and dark modes for a comfortable and visually appealing experience.
 
+## Demo
+
+[Demo Link]
 
 ## Getting Started
 
-1. **Installation**: npm install
+1. **Installation**: npm instal
 
 2. **Run the App**: npm start
-
-
-3. **Customize**:
-- Edit `src/config.js` to add or modify quiz categories.
 
 ## Technologies Used
 
@@ -31,7 +30,7 @@ A dynamic Quiz App built with React and powered by Redux for seamless state mana
 
 ## Deployment
 
-The app is deployed using GitHub Pages. For deployment instructions, refer to the [Deployment Section](#deployment).
+The app is deployed using Vercel.
 
 ## Contributing
 
