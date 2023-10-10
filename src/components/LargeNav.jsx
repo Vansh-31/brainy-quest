@@ -11,7 +11,7 @@ const LargeNav = () => {
 	const darkMode = useSelector((state) => state.darkMode);
 	return (
 		<>
-			<div className={`w-full min-h-[10vh] h-20 bg-${ darkMode ? "primaryDark":"secondary" }`}>
+			<div className={`w-full min-h-[10vh] h-20 ${ darkMode ? "bg-primaryDark":"bg-secondary" }`}>
 				<nav className="w-11/12 h-full max-w-6xl mx-auto flex justify-between items-center">
 					<NavLink
 						to="/"

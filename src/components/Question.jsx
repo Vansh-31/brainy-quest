@@ -10,7 +10,7 @@ const Question = ({ questionNumber, question, options, userAnswers }) => {
 	return (
 		<div className="h-full w-full flex justify-center">
 			<div className="w-max max-w-full p-6">
-				<h2 className="text-2xl font-bold text-center">
+				<h2 className="text-xl font-bold text-center md:text-2xl">
 					{formatString(question)}
 				</h2>
 				<div className="flex flex-col mt-12 items-center gap-10">
