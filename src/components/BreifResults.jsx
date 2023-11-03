@@ -44,7 +44,7 @@ const BreifResults = ({ setShowDetailedResults }) => {
 					})}
 				></CircularProgressbar>
 			</div>
-			<div className="w-full flex flex-wrap gap-8 justify-center">
+			<div className="w-full flex flex-wrap gap-8 justify-center m-10">
 				<button
 					onClick={() => {
 						dispatch(
