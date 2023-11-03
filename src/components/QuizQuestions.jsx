@@ -16,7 +16,7 @@ const QuizQuestions = () => {
 				submitOverlayVisiblity={submitOverlayVisiblity}
 				setSubmitOverlayVisiblity={setSubmitOverlayVisiblity}
 			></SubmitOverlay>
-			<div className="w-11/12 h-full max-w-6xl mx-auto  flex flex-col justify-between items-center p-10">
+			<div className="w-11/12 h-full max-w-6xl mx-auto  flex flex-col justify-between items-center p-10 min-h-[650px]">
 				<Question
 					questionNumber={currentIndex}
 					question={quizQuestions[currentIndex]}
