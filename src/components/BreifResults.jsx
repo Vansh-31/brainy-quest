@@ -32,7 +32,7 @@ const BreifResults = ({ setShowDetailedResults }) => {
 			<h1 className="text-5xl font-bold text-[rgb(0,157,255)] text-center">
 				Your Score :
 			</h1>
-			<div className="h-1/2">
+			<div className="h-1/2 m-5">
 				<CircularProgressbar
 					value={(score / total) * 100}
 					text={`${score}/${total}`}
