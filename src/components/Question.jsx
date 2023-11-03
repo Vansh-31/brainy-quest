@@ -8,7 +8,7 @@ const Question = ({ questionNumber, question, options, userAnswers }) => {
 		return doc.documentElement.textContent;
 	};
 	return (
-		<div className="h-full w-full flex justify-center min-h-[650px]">
+		<div className="min-h-[650px] h-full w-full flex justify-center">
 			<div className="w-max max-w-full p-6">
 				<h2 className="text-xl font-bold text-center md:text-2xl">
 					{formatString(question)}
