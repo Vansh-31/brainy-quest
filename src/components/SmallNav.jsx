@@ -13,7 +13,7 @@ const SmallNav = () => {
 	return (
 		<>
 			<div
-				className={`relative w-full min-h-[10vh] h-20 flex justify-between items-center px-4 z-20 ${
+				className={`relative w-full min-h-[10vh] h-20 flex justify-between items-center px-4 mb-[60px] z-20 ${
 					darkMode ? "bg-primaryDark" : "bg-secondary"
 				}`}
 			>
